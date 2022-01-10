@@ -1,13 +1,15 @@
 const mongoose = require("mongoose");
 const express = require("express");
 const cors = require("cors");
+const dotenv = require("dotenv");
+dotenv.config();
 
 const app = express();
 app.use(cors());
 
-const DB_HOST =
-  "mongodb+srv://Olha:12345qwert@cluster0.6jfgu.mongodb.net/react-test?retryWrites=true&w=majority";
+const { DB_HOST } = process.env;
 
+console.log(DB_HOST);
 mongoose
   .connect(DB_HOST)
   .then(() => {
