@@ -13,10 +13,7 @@ const registration = async (req, res) => {
   res.status(201).json({
     status: "success",
     code: 201,
-    user: {
-      email: "example@example.com",
-      subscription: "starter",
-    },
+    message: "Register success",
   });
 };
 module.exports = registration;
