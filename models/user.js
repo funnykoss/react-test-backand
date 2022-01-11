@@ -6,8 +6,8 @@ const userSchema = Schema(
   {
     name: {
       type: String,
-      enum: ["starter", "pro", "business"],
-      default: "starter",
+      required: [true, "Please enter valid name"],
+      maxLength: [30, "Your name cannot exceed 30 characters]"],
     },
     email: {
       type: String,
@@ -36,9 +36,9 @@ userSchema.methods.comparePassword = function (password) {
 };
 
 const joiSchema = Joi.object({
+  name: Joi.string().required(),
   email: Joi.string().required(),
   password: Joi.string().min(6).required(),
-  name: Joi.string(),
 });
 
 const User = model("user", userSchema);
