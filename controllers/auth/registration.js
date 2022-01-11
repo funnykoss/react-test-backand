@@ -12,12 +12,7 @@ const registration = async (req, res) => {
   newUser.setPassword(password);
   await newUser.save();
   res.status(201).json({
-    status: "success",
-    code: 201,
-    message: "Register success",
-    user: {
-      newUser,
-    },
+    newUser,
   });
 };
 module.exports = registration;
