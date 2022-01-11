@@ -15,6 +15,9 @@ const registration = async (req, res) => {
     status: "success",
     code: 201,
     message: "Register success",
+    user: {
+      newUser,
+    },
   });
 };
 module.exports = registration;
