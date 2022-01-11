@@ -11,6 +11,10 @@ const registration = async (req, res) => {
   const newUser = new User({ name, email });
   newUser.setPassword(password);
   await newUser.save();
-  res.status(201).json({ newUser });
+  res.status(201).json({
+    status: "success",
+    code: 201,
+    message: "Register success",
+  });
 };
 module.exports = registration;
